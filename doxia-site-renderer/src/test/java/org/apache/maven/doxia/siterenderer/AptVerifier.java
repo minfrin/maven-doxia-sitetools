@@ -21,6 +21,7 @@ package org.apache.maven.doxia.siterenderer;
 
 import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
 import com.gargoylesoftware.htmlunit.html.HtmlBold;
+import com.gargoylesoftware.htmlunit.html.HtmlCode;
 import com.gargoylesoftware.htmlunit.html.HtmlDivision;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlHeading2;
@@ -28,6 +29,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlHeading3;
 import com.gargoylesoftware.htmlunit.html.HtmlItalic;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlParagraph;
+import com.gargoylesoftware.htmlunit.html.HtmlSection;
 import com.gargoylesoftware.htmlunit.html.HtmlTeletype;
 
 import java.util.Iterator;
@@ -59,8 +61,7 @@ public class AptVerifier
         //
         // ----------------------------------------------------------------------
 
-        HtmlDivision div = (HtmlDivision) elementIterator.next();
-        assertEquals( "section", div.getAttribute( "class" ) );
+        HtmlSection section = (HtmlSection) elementIterator.next();
 
         HtmlHeading2 h2 = (HtmlHeading2) elementIterator.next();
         assertNotNull( h2 );
@@ -104,13 +105,13 @@ public class AptVerifier
         a = (HtmlAnchor) elementIterator.next();
         assertEquals( "/index.html", a.getAttribute( "href" ) );
 
-        div = (HtmlDivision) elementIterator.next();
-        assertEquals( "section", div.getAttribute( "class" ) );
+        section = (HtmlSection) elementIterator.next();
+        assertNotNull( section );
 
         h2 = (HtmlHeading2) elementIterator.next();
         assertNotNull( h2 );
         // Note: htmlunit strips the white space, actual result is ok
-        assertEquals( "Section formatting: italicboldmono", h2.asText().trim() );
+        assertEquals( "Section formatting: italic bold mono", h2.asText().trim() );
 
         a = (HtmlAnchor) elementIterator.next();
         assertEquals( "Section_formatting:_italic_bold_mono", a.getAttribute( "name" ) );
@@ -123,17 +124,17 @@ public class AptVerifier
         assertEquals( "b", bold.getTagName() );
         assertEquals( "bold", bold.asText().trim() );
 
-        HtmlTeletype tt = (HtmlTeletype) elementIterator.next();
-        assertEquals( "tt", tt.getTagName() );
-        assertEquals( "mono", tt.asText().trim() );
+        HtmlCode code = (HtmlCode) elementIterator.next();
+        assertEquals( "code", code.getTagName() );
+        assertEquals( "mono", code.asText().trim() );
 
-        div = (HtmlDivision) elementIterator.next();
-        assertEquals( "section", div.getAttribute( "class" ) );
+        section = (HtmlSection) elementIterator.next();
+        assertNotNull( section );
 
         HtmlHeading3 h3 = (HtmlHeading3) elementIterator.next();
         assertNotNull( h3 );
         // Note: htmlunit strips the white space, actual result is ok
-        assertEquals( "SubSection formatting: italicboldmono", h3.asText().trim() );
+        assertEquals( "SubSection formatting: italic bold mono", h3.asText().trim() );
 
         a = (HtmlAnchor) elementIterator.next();
         assertEquals( "SubSection_formatting:_italic_bold_mono", a.getAttribute( "name" ) );
@@ -146,9 +147,9 @@ public class AptVerifier
         assertEquals( "b", bold.getTagName() );
         assertEquals( "bold", bold.asText().trim() );
 
-        tt = (HtmlTeletype) elementIterator.next();
-        assertEquals( "tt", tt.getTagName() );
-        assertEquals( "mono", tt.asText().trim() );
+        code = (HtmlCode) elementIterator.next();
+        assertEquals( "code", code.getTagName() );
+        assertEquals( "mono", code.asText().trim() );
 
         p = (HtmlParagraph) elementIterator.next();
         assertNotNull( p );
@@ -161,12 +162,12 @@ public class AptVerifier
         assertEquals( "b", bold.getTagName() );
         assertEquals( "bold", bold.asText().trim() );
 
-        tt = (HtmlTeletype) elementIterator.next();
-        assertEquals( "tt", tt.getTagName() );
-        assertEquals( "mono", tt.asText().trim() );
+        code = (HtmlCode) elementIterator.next();
+        assertEquals( "code", code.getTagName() );
+        assertEquals( "mono", code.asText().trim() );
 
-        div = (HtmlDivision) elementIterator.next();
-        assertEquals( "section", div.getAttribute( "class" ) );
+        section = (HtmlSection) elementIterator.next();
+        assertNotNull( section );
 
         h2 = (HtmlHeading2) elementIterator.next();
         assertNotNull( h2 );
@@ -174,7 +175,7 @@ public class AptVerifier
         a = (HtmlAnchor) elementIterator.next();
         assertEquals( "No_Default_Anchor_in_Section_Title_with_Explicit_Anchor", a.getAttribute( "name" ) );
 
-        div = (HtmlDivision) elementIterator.next();
-        assertEquals( "section", div.getAttribute( "class" ) );
+        section = (HtmlSection) elementIterator.next();
+        assertNotNull( section );
     }
 }

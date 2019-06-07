@@ -28,6 +28,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlHeading2;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlParagraph;
 import com.gargoylesoftware.htmlunit.html.HtmlScript;
+import com.gargoylesoftware.htmlunit.html.HtmlSection;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -60,6 +61,7 @@ public class JavascriptVerifier
 
         // HtmlUnit
         WebClient webClient = new WebClient();
+        webClient.getOptions().setCssEnabled( false );
 
         final List<String> collectedAlerts = new ArrayList<String>( 4 );
         webClient.setAlertHandler( new CollectingAlertHandler( collectedAlerts ) );
@@ -78,9 +80,8 @@ public class JavascriptVerifier
         //
         // ----------------------------------------------------------------------
 
-        HtmlDivision div = (HtmlDivision) elementIterator.next();
-        assertNotNull( div );
-        assertEquals( "section", div.getAttribute( "class" ) );
+        HtmlSection section = (HtmlSection) elementIterator.next();
+        assertNotNull( section );
 
         HtmlHeading2 h2 = (HtmlHeading2) elementIterator.next();
         assertNotNull( h2 );

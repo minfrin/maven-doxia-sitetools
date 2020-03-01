@@ -25,7 +25,7 @@
   <parent>
     <groupId>org.apache.maven.doxia</groupId>
     <artifactId>doxia-sitetools</artifactId>
-    <version>1.9-SNAPSHOT</version>
+    <version>1.9.3-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
@@ -95,7 +95,6 @@
     <dependency>
       <groupId>org.codehaus.plexus</groupId>
       <artifactId>plexus-container-default</artifactId>
-      <version>1.0-alpha-9</version>
     </dependency>
     <dependency>
       <groupId>org.codehaus.plexus</groupId>

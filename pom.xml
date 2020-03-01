@@ -25,13 +25,13 @@ under the License.
   <parent>
     <groupId>org.apache.maven</groupId>
     <artifactId>maven-parent</artifactId>
-    <version>33</version>
+    <version>34</version>
     <relativePath>../../pom/maven/pom.xml</relativePath>
   </parent>
 
   <groupId>org.apache.maven.doxia</groupId>
   <artifactId>doxia-sitetools</artifactId>
-  <version>1.9-SNAPSHOT</version>
+  <version>1.9.3-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Doxia Sitetools</name>
@@ -70,8 +70,9 @@ under the License.
 
   <properties>
     <javaVersion>7</javaVersion>
-    <doxiaVersion>1.9</doxiaVersion>
+    <doxiaVersion>1.9.1</doxiaVersion>
     <maven.site.path>doxia-sitetools-archives/doxia-sitetools-LATEST</maven.site.path>
+    <project.build.outputTimestamp>2020-02-19T07:03:09Z</project.build.outputTimestamp>
   </properties>
 
   <dependencyManagement>
@@ -185,7 +186,7 @@ under the License.
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
-        <version>3.8.2</version>
+        <version>4.13</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -204,14 +205,6 @@ under the License.
     </resources>
     <pluginManagement>
       <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-release-plugin</artifactId>
-          <configuration>
-            <tagBase>https://svn.apache.org/repos/asf/maven/doxia/doxia-sitetools/tags</tagBase>
-            <autoVersionSubmodules>true</autoVersionSubmodules>
-          </configuration>
-        </plugin>
         <!-- TODO need to upgrade to last version or Maven parent version -->
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
@@ -247,11 +240,6 @@ under the License.
               <exclude>src/test/resources/xhtml-lat1.ent</exclude>
             </excludes>
           </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.codehaus.plexus</groupId>
-          <artifactId>plexus-component-metadata</artifactId>
-          <version>1.7.1</version>
         </plugin>
       </plugins>
     </pluginManagement>
